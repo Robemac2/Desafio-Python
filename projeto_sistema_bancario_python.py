@@ -9,6 +9,7 @@ lista_de_saques = []
 lista_de_depositos = []
 lista_de_operacao_realizada_saque_ou_deposito = [] # 1 = saque, 2 = deposito
 
+# Função para realizar um depósito
 def deposito(valor):
     global saldo
     saldo += valor
@@ -17,21 +18,24 @@ def deposito(valor):
     print(f"Deposito de R$ {valor.__format__('0.2f')} realizado com sucesso!")
     voltar_menu()
 
+# Função para realizar um saque
 def saque(valor):
     global saldo
     global saques
+
     if saques > LIMITE_SAQUES_POR_DIA:
         print("Limite de saques por dia atingido!")
         voltar_menu()
         return
-    if valor > LIMITE_SAQUE:
+    elif valor > LIMITE_SAQUE:
         print(f"Valor de saque superior ao limite de R$ {LIMITE_SAQUE.__format__('0.2f')}")
         voltar_menu()
         return
-    if saldo < valor:
+    elif saldo < valor:
         print("Saldo insuficiente!")
         voltar_menu()
         return
+
     saldo -= valor
     saques += 1
     lista_de_saques.append(valor)
@@ -40,6 +44,7 @@ def saque(valor):
 
     voltar_menu()
 
+# Função para exibir o extrato bancário
 def extrato():
     lista_de_operacao_realizada_saque_ou_deposito_copia = lista_de_operacao_realizada_saque_ou_deposito.copy()
     lista_de_saques_copia = lista_de_saques.copy()
@@ -66,6 +71,7 @@ def extrato():
     print()
     voltar_menu()
 
+# Função para exibir o menu
 def menu():
     print(f"""  Bem vindo ao Sistema Bancário em Python!
     
@@ -76,13 +82,16 @@ def menu():
     
     """)
 
+# Função para limpar a tela
 def clear():
     os.system('cls||echo -e \\\\033c')
 
+# Função para voltar ao menu
 def voltar_menu():
     print()
     input("Pressione ENTER para voltar ao menu...")
 
+# Loop principal
 while True:
     clear()
     menu()
