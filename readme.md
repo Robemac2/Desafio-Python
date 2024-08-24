@@ -2,7 +2,7 @@
 
 ---
 
-### Regras de Negócio
+### Regras de Negócio Versão 1.0
 
 - O sistema deverá implementar as seguintes funcionalidades:
   - Realizar Saque
@@ -20,3 +20,12 @@
     - Os depósitos deverão ser exibidos com o sinal de positivo
     - As operações deverão ser exibidas na ordem em que foram realizadas
     - O extrato deverá exibir o saldo disponível na conta ao final da listagem
+
+---
+
+### Regras de Negócio Versão 2.0
+
+- O sistema deverá implementar as seguintes funcionalidades adicionais:
+  - Estabelecer um limite de 10 operações por dia
+  - Caso o usuário tente realizar uma operação após o limite diário, o sistema deverá exibir uma mensagem informando que o limite foi atingido
+  - Mostrar no extrato a data e hora de cada operação
