@@ -23,7 +23,7 @@ def saque(valor):
     global saldo
     global saques
 
-    if saques > LIMITE_SAQUES_POR_DIA:
+    if saques >= LIMITE_SAQUES_POR_DIA:
         print("Limite de saques por dia atingido!")
         voltar_menu()
         return
